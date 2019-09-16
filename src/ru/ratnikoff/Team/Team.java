@@ -9,21 +9,20 @@ import ru.ratnikoff.Participant.Human;
 public class Team {
     Competitor[] mCompetitors;
 
-    public Team(String human, String cat, String dog) {
-        mCompetitors = new Competitor[]{new Human(human), new Cats(cat), new Dogs(dog)};
+    public Team(Human human, Cats cat, Dogs dog) {
+        mCompetitors = new Competitor[]{human,cat, dog};
     }
 
     public void showResults() {
-        mCompetitors[0].info();
-        mCompetitors[1].info();
-        mCompetitors[2].info();
+        for (Competitor mComp : mCompetitors) {
+            mComp.info();
+        }
     }
 
     public void getGoDistance(int dist, int swim, int heigth) {
-       // for (Competi)
+        for (Competitor mComp : mCompetitors) {
 
-        mCompetitors[0].getDistance(dist,swim,heigth);
-        mCompetitors[1].getDistance(dist,swim,heigth);
-        mCompetitors[2].getDistance(dist,swim,heigth);
+            mComp.getDistance(dist, swim, heigth);
+        }
     }
 }
