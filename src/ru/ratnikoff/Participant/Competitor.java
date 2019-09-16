@@ -3,5 +3,10 @@ package ru.ratnikoff.Participant;
 public interface Competitor {
     void info();
 
-    void getDistance(int dist, int swim, int heigth);
+    int getDistance();
+    int getSwim();
+    int getWall();
+    void setIsDistance(Boolean check);
+    void setIsSwim(Boolean check);
+    void setIsWall(Boolean check);
 }

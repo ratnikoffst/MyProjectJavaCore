@@ -1,20 +1,21 @@
 package ru.ratnikoff.Course;
 
+import ru.ratnikoff.Participant.Competitor;
 import ru.ratnikoff.Team.Team;
 
 public class Course {
-    int dist;
-    int swim;
-    int heigth;
+    Obstacles[] mObstacles;
 
     public Course(int dist, int swim, int heigth) {
-        this.dist = dist;
-        this.swim = swim;
-        this.heigth = heigth;
+        mObstacles = new Obstacles[]{new Run(dist), new Swim(swim), new Wall(heigth)};
     }
 
     public void doIt(Team team) {
-        team.getGoDistance(dist,swim,heigth);
-
+        for (Competitor mComp : team.mCompetitors) {
+            mComp.setIsDistance(mObstacles[0].getCheck(mComp.getDistance()));
+            mComp.setIsSwim(mObstacles[1].getCheck(mComp.getSwim()));
+            mComp.setIsWall(mObstacles[2].getCheck(mComp.getWall()));
+        }
     }
 }
+

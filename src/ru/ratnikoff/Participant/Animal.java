@@ -9,10 +9,29 @@ public abstract class Animal implements Competitor {
     boolean mSwim;
     boolean mJump;
 
-    public void getDistance(int dist, int swim, int jump) {
-        mRun = dist <= this.dist ? true : false;
-        mSwim = swim <= this.swim ? true : false;
-        mJump = jump <= this.jump ? true : false;
+    //
+    public int getDistance() {
+        return dist;
+    }
+
+    public int getSwim() {
+        return dist;
+    }
+
+    public int getWall() {
+        return dist;
+    }
+
+    public void setIsDistance(Boolean check) {
+        mRun = check;
+    }
+
+    public void setIsSwim(Boolean check) {
+        mSwim = check;
+    }
+
+    public void setIsWall(Boolean check) {
+        mJump = check;
     }
 
     public void info() {
