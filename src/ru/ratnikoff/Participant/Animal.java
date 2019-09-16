@@ -21,7 +21,6 @@ public abstract class Animal implements Competitor {
         } else {
             System.out.println("" + mName + " Кросс не пробежал.Сдох");
         }
-
         if (mSwim) {
             System.out.println(mName + " Реку переплыл");
         } else {
