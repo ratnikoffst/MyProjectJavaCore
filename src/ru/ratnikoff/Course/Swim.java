@@ -1,7 +1,16 @@
 package ru.ratnikoff.Course;
 
-public class Swim extends Check {
+public class Swim extends Dolt {
     public Swim(int swim) {
-        setObstacles(swim);
+        mObstacles = swim;
+    }
+
+    @Override
+    public boolean getCheck(int obstacles) {
+        if (mObstacles > obstacles) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
