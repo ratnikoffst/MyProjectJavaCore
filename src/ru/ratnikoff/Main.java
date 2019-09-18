@@ -1,6 +1,6 @@
 package ru.ratnikoff;
 
-import ru.ratnikoff.Course.Course;
+import ru.ratnikoff.Course.*;
 import ru.ratnikoff.Participant.Cats;
 import ru.ratnikoff.Participant.Dogs;
 import ru.ratnikoff.Participant.Human;
@@ -21,7 +21,7 @@ public class Main {
         System.out.print("Введите высоту стены: ");
         int heigth = in.nextInt();
 
-        Course mCourse = new Course(dist, swim, heigth); // Создаем полосу препятствий
+        Course mCourse = new Course(new Obstacle[]{new Run(dist) ,new Swimable( swim), new Wall(heigth)}); // Создаем полосу препятствий
         Team team = new Team(new Human("Human"), new Cats("Cat"), new Dogs("Dog")); // Создаем команду
         mCourse.doIt(team); // Просим команду пройти полосу
         team.showResults(); // Показываем результаты// write your code here

@@ -1,12 +1,13 @@
 package ru.ratnikoff.Participant;
 
-public interface Competitor {
+public interface Competitor { //  extends Runnable, Swimable, Wall
+    void isOnDistance(int type, boolean b);
+
     void info();
 
-    int getDistance();
     int getSwim();
+
+    int getDist();
+
     int getWall();
-    void setIsDistance(Boolean check);
-    void setIsSwim(Boolean check);
-    void setIsWall(Boolean check);
 }

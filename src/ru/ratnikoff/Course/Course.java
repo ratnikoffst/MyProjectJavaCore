@@ -4,17 +4,22 @@ import ru.ratnikoff.Participant.Competitor;
 import ru.ratnikoff.Team.Team;
 
 public class Course {
-    Obstacles[] mObstacles;
+    Obstacle[] mObstacles;
 
-    public Course(int dist, int swim, int heigth) {
-        mObstacles = new Obstacles[]{new Run(dist), new Swim(swim), new Wall(heigth)};
+    public Course(Obstacle[] obstacles) {
+        mObstacles = obstacles;
     }
 
     public void doIt(Team team) {
         for (Competitor mComp : team.mCompetitors) {
-            mComp.setIsDistance(mObstacles[0].getCheck(mComp.getDistance()));
-            mComp.setIsSwim(mObstacles[1].getCheck(mComp.getSwim()));
-            mComp.setIsWall(mObstacles[2].getCheck(mComp.getWall()));
+            for (Obstacle obstacle : mObstacles) {
+                Boolean ok = obstacle.doIt(mComp);
+                if (ok) {
+                    mComp.isOnDistance(obstacle.getType(), obstacle.doIt(mComp));
+                } else {
+                    break;
+                }
+            }
         }
     }
 }

@@ -2,19 +2,18 @@ package ru.ratnikoff.Course;
 
 import ru.ratnikoff.Participant.Competitor;
 
-//public Animal
-public class Wall implements Obstacle {
-    private int jump;
-    int type = 2;
+public class Swimable implements Obstacle {
+    private int swim;
+    int type = 1;
 
-    public Wall(int jump) {
-        this.jump = jump;
+    public Swimable(int swim) {
+        this.swim = swim;
     }
 
 
     @Override
     public boolean doIt(Competitor competitor) {
-        if (competitor.getWall() >= jump) {
+        if (competitor.getSwim() >= swim) {
             return true;
         } else {
             return false;
